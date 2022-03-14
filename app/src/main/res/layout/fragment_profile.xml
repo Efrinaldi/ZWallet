@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.main.ProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.main.ProfileFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/profilegroup"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="vertical"
+            android:layout_marginTop="50dp">
+
+            <!-- TODO: Update blank fragment layout -->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:shapeAppearanceOverlay="@style/RoundCornerOverLay"
+                android:id="@+id/imageprofile"
+                android:src="@drawable/diluc"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textedit"
+                android:text="@string/edit"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/imageprofile"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/profilename"
+                android:text="Robert Chandler"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/textedit"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/profilename"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp"
+                android:id="@+id/phonenumber"
+                android:text="081234566789" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttongroup"
+            android:layout_marginTop="50dp"
+            app:layout_constraintTop_toBottomOf="@id/profilegroup"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnpersonal"
+                style="@style/TextView.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@drawable/background_button_auth"
+                android:text="Personal Information"
+                android:textAlignment="textStart"
+                android:padding="15dp"
+                android:textAllCaps="false"
+                android:textColor="#88888F"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/buttongroup" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnchangepassword"
+                style="@style/TextView.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@drawable/background_button_auth"
+                android:text="Change Password"
+                android:textAlignment="textStart"
+                android:padding="15dp"
+                android:textAllCaps="false"
+                android:textColor="#88888F"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnpersonal" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnchangepin"
+                style="@style/TextView.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@drawable/background_button_auth"
+                android:text="Change PIN"
+                android:textAlignment="textStart"
+                android:padding="15dp"
+                android:textAllCaps="false"
+                android:textColor="#88888F"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnchangepassword" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnnotification"
+                style="@style/TextView.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@drawable/background_button_auth"
+                android:text="Notification"
+                android:textAlignment="textStart"
+                android:padding="15dp"
+                android:textAllCaps="false"
+                android:textColor="#88888F"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnchangepin" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnlogout"
+                style="@style/TextView.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@drawable/background_button_auth"
+                android:text="Logout"
+                android:textAlignment="textStart"
+                android:padding="15dp"
+                android:textAllCaps="false"
+                android:textColor="#88888F"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnnotification" />
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+

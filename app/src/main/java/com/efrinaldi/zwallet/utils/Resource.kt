@@ -1,0 +1,9 @@
+package com.efrinaldi.zwallet.utils
+
+class Resource<out T>(val state: State, val data:T?, val message: String?) {
+    companion object{
+        fun<T> success(data:T): Resource<T> = Resource(State.SUCCESS, data, null)
+        fun<T> error(data:T?, message: String?): Resource<T> = Resource(State.ERROR, data, message)
+        fun<T> loading(data:T): Resource<T> = Resource(State.LOADING, data, null)
+    }
+}

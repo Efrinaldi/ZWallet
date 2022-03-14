@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.main.home.HomeFragment"
+    android:background="@color/backgroundColor">
+
+    <include
+        android:id="@+id/balance"
+        layout="@layout/item_balance_home"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/balance"
+        android:id="@+id/TextTransactionHistory"
+        android:text="Transaction History"
+        android:textSize="18sp"
+        android:textColor="@color/greyDarkColor"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/balance"
+        style="@style/TextView.MainActivity.ViewAll"
+        android:id="@+id/textviewall"
+        android:text="View All"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rvTransaction"
+        app:layout_constraintTop_toBottomOf="@id/TextTransactionHistory"
+        android:layout_margin="25dp"
+        tools:listitem="@layout/item_transaction_home"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
