@@ -10,9 +10,7 @@
     <include
         android:id="@+id/balance"
         layout="@layout/item_balance_home"
-        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,7 +43,17 @@
         android:id="@+id/rvTransaction"
         app:layout_constraintTop_toBottomOf="@id/TextTransactionHistory"
         android:layout_margin="25dp"
-        tools:listitem="@layout/item_transaction_home"/>
+        tools:listitem="@layout/item_transaction_home" />
+
+    <ProgressBar
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/loadingIndicator"
+        android:indeterminateTint="@color/primaryColor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

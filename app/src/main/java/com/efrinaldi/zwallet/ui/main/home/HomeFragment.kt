@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
@@ -15,15 +14,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.efrinaldi.zwallet.R
 import com.efrinaldi.zwallet.data.Transaction
 import com.efrinaldi.zwallet.databinding.FragmentHomeBinding
-import com.efrinaldi.zwallet.model.APIResponse
-import com.efrinaldi.zwallet.model.Balance
-import com.efrinaldi.zwallet.network.NetworkConfig
 import com.efrinaldi.zwallet.ui.viewModelsFactory
 import com.efrinaldi.zwallet.utils.Helper.formatPrice
 import com.efrinaldi.zwallet.utils.PREFS_NAME
-import retrofit2.Callback
-import retrofit2.Call
-import retrofit2.Response
+import com.efrinaldi.zwallet.utils.State
 import javax.net.ssl.HttpsURLConnection
 
 class HomeFragment : Fragment() {
@@ -45,6 +39,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         prefs = context?.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)!!
+
+        prepareData()
 
         binding.balance.imagelisttransaction.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_profileFragment)
@@ -80,18 +76,37 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.getInvoice().observe(viewLifecycleOwner){
-
-            if (it.data?.status == HttpsURLConnection.HTTP_OK){
-                this.transactionAdapter.apply {
-                    addData(it.data?.data!!)
-                    notifyDataSetChanged()
+            when (it.state) {
+                State.LOADING -> {
+                    binding.apply {
+                        loadingIndicator.visibility = View.VISIBLE
+                        rvTransaction.visibility = View.GONE
+                    }
+                }
+                State.SUCCESS -> {
+                    binding.apply {
+                        loadingIndicator.visibility = View.VISIBLE
+                        rvTransaction.visibility = View.GONE
+                    }
+                    if (it.data?.status == HttpsURLConnection.HTTP_OK) {
+                        this.transactionAdapter.apply {
+                            addData(it.data.data!!)
+                            notifyDataSetChanged()
+                        }
+                    } else {
+                        Toast.makeText(context, it.data?.message, Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                }
+                State.ERROR -> {
+                    binding.apply {
+                        loadingIndicator.visibility = View.GONE
+                        rvTransaction.visibility
+                    }
+                    Toast.makeText(context, it.message, Toast.LENGTH_SHORT)
+                        .show()
+                    }
                 }
             }
-            else {
-                Toast.makeText(context, "Authentication failed: Wrong email/password", Toast.LENGTH_SHORT)
-                    .show()
-            }
         }
-    }
-    
 }
