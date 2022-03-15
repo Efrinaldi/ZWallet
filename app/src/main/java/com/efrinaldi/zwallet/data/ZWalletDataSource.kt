@@ -1,12 +1,7 @@
 package com.efrinaldi.zwallet.data
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.efrinaldi.zwallet.data.api.ZWalletApi
-import com.efrinaldi.zwallet.model.APIResponse
-import com.efrinaldi.zwallet.model.Balance
-import com.efrinaldi.zwallet.model.Invoice
-import com.efrinaldi.zwallet.model.User
 import com.efrinaldi.zwallet.model.request.LoginRequest
 import com.efrinaldi.zwallet.utils.Resource
 import kotlinx.coroutines.Dispatchers

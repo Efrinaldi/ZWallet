@@ -40,7 +40,7 @@ class TransactionAdapter(private var data:List<Invoice>) : RecyclerView.Adapter<
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): TransactionAdapter.TransactionAdapterHolder {
+    ): TransactionAdapterHolder {
         val inflater = LayoutInflater.from(parent.context)
         this.contextAdapter = parent.context
 
@@ -49,7 +49,7 @@ class TransactionAdapter(private var data:List<Invoice>) : RecyclerView.Adapter<
     }
 
     override fun onBindViewHolder(
-        holder: TransactionAdapter.TransactionAdapterHolder,
+        holder: TransactionAdapterHolder,
         position: Int
     ) {
         holder.bindData(this.data[position], contextAdapter, position)

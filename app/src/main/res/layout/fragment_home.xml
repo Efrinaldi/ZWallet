@@ -1,59 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.main.home.HomeFragment"
-    android:background="@color/backgroundColor">
+    android:layout_height="wrap_content"
+    android:scrollbars="none"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <include
-        android:id="@+id/balance"
-        layout="@layout/item_balance_home"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/balance"
-        android:id="@+id/TextTransactionHistory"
-        android:text="Transaction History"
-        android:textSize="18sp"
-        android:textColor="@color/greyDarkColor"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/balance"
-        style="@style/TextView.MainActivity.ViewAll"
-        android:id="@+id/textviewall"
-        android:text="View All"/>
-
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rvTransaction"
-        app:layout_constraintTop_toBottomOf="@id/TextTransactionHistory"
-        android:layout_margin="25dp"
-        tools:listitem="@layout/item_transaction_home" />
+        android:background="@color/backgroundColor">
 
-    <ProgressBar
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/loadingIndicator"
-        android:indeterminateTint="@color/primaryColor"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        <LinearLayout
+            android:id="@+id/userInfoGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/profileImage"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginEnd="15dp"
+                app:shapeAppearanceOverlay="@style/RoundCornerOverLay"
+                android:scaleType="centerCrop"
+                android:src="@drawable/diluc"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hello, "
+                    android:textSize="15sp"
+                    android:textColor="@color/greyDarkColor"/>
+
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Efrinaldi Al-Zuhri"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/notificationIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_notifications_24"
+                android:layout_gravity="center"
+                android:contentDescription="Notification Icon" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/userBalanceGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primaryColor"
+            android:layout_margin="16dp"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="14dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userInfoGroup"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/balanceTextTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_font"
+                android:textColor="@color/white"
+                android:layout_margin="5dp"
+                android:text="Balance"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/currentBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_font"
+                android:textColor="@color/white"
+                android:layout_margin="5dp"
+                android:text="Rp345.000"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/userPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/nunito_font"
+                android:text="+62812747372233"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/buttonGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userBalanceGroup"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonTransfer"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:paddingHorizontal="30dp"
+                android:text="Transfer"
+                android:textAllCaps="false"
+                android:textColor="#514F5B"
+                android:drawableTint="#608DE2"
+                android:fontFamily="@font/nunito_font"
+                app:iconPadding="10dp"
+                android:layout_gravity="center"
+                android:background="@drawable/background_button_auth"
+                android:drawableStart="@drawable/ic_baseline_arrow_upward_24"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginLeft="10dp"
+                android:id="@+id/buttonTopUp"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:paddingHorizontal="30dp"
+                android:layout_height="wrap_content"
+                android:text="Top Up"
+                android:textAllCaps="false"
+                android:textColor="#514F5B"
+                android:drawableTint="#608DE2"
+                android:fontFamily="@font/nunito_font"
+                android:background="@drawable/background_button_auth"
+                android:drawableStart="@drawable/ic_baseline_add_24"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textTransactionHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transaction History"
+            android:textSize="18sp"
+            android:textColor="#514F5B"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonGroup" />
+
+        <TextView
+            android:id="@+id/textViewAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="See all"
+            style="@style/TextView.MainActivity.ViewAll"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonGroup" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerTransaction"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/textTransactionHistory"
+            tools:listitem="@layout/item_transaction_home" />
+
+        <ProgressBar
+            android:id="@+id/loadingIndicator"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:indeterminateTint="@color/primaryColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</ScrollView>

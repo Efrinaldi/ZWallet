@@ -18,74 +18,91 @@ import com.efrinaldi.zwallet.ui.viewModelsFactory
 import com.efrinaldi.zwallet.utils.Helper.formatPrice
 import com.efrinaldi.zwallet.utils.PREFS_NAME
 import com.efrinaldi.zwallet.utils.State
+import com.efrinaldi.zwallet.widget.LoadingDialog
 import javax.net.ssl.HttpsURLConnection
 
 class HomeFragment : Fragment() {
     private val transactionData = mutableListOf<Transaction>()
     private lateinit var transactionAdapter: TransactionAdapter
-    private  lateinit var binding: FragmentHomeBinding
+    private lateinit var binding: FragmentHomeBinding
     private lateinit var prefs: SharedPreferences
     private val viewModel: HomeViewModel by viewModelsFactory { HomeViewModel(requireActivity().application) }
+    private lateinit var loadingDialog: LoadingDialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater)
+        loadingDialog = LoadingDialog(requireActivity())
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         prefs = context?.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)!!
 
         prepareData()
 
-        binding.balance.imagelisttransaction.setOnClickListener {
+        binding.profileImage.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_profileFragment)
         }
 
-        binding.balance.BtnTopUP.setOnClickListener {
+        binding.buttonTopUp.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_topUpFragment)
         }
 
     }
 
 
-
-    private fun prepareData(){
+    private fun prepareData() {
         this.transactionAdapter = TransactionAdapter(listOf())
-        binding.rvTransaction.apply {
+        binding.recyclerTransaction.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = transactionAdapter
         }
-        viewModel.getBalance().observe(viewLifecycleOwner){
 
-            if (it.data?.status == HttpsURLConnection.HTTP_OK){
-                binding.apply {
-                    balance.nominal.formatPrice(it.data.data?.get(0)?.balance.toString())
-                    balance.telepon.text = it.data.data?.get(0)?.phone
+        viewModel.getBalance().observe(viewLifecycleOwner) {
+            when (it.state) {
+                State.LOADING -> {
+                    loadingDialog.start("Fetching Your Personal Data")
                 }
-            }
-            else {
-                Toast.makeText(context, "Authentication failed: Wrong email/password", Toast.LENGTH_SHORT)
-                    .show()
+                State.SUCCESS -> {
+                    loadingDialog.stop()
+                    if (it.data?.status == HttpsURLConnection.HTTP_OK) {
+                        binding.apply {
+                            currentBalance.formatPrice(it.data.data?.get(0)?.balance.toString())
+                            userPhoneNumber.text = it.data.data?.get(0)?.phone
+                            userName.text = it.data.data?.get(0)?.name
+                        }
+                    } else {
+                        Toast.makeText(
+                            context,
+                            "Authentication failed: Wrong email/password",
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
+                    }
+                }
+                State.ERROR -> {
+                    loadingDialog.stop()
+                    Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
-        viewModel.getInvoice().observe(viewLifecycleOwner){
+        viewModel.getInvoice().observe(viewLifecycleOwner) {
             when (it.state) {
                 State.LOADING -> {
                     binding.apply {
                         loadingIndicator.visibility = View.VISIBLE
-                        rvTransaction.visibility = View.GONE
+                        recyclerTransaction.visibility = View.GONE
                     }
                 }
                 State.SUCCESS -> {
                     binding.apply {
-                        loadingIndicator.visibility = View.VISIBLE
-                        rvTransaction.visibility = View.GONE
+                        loadingIndicator.visibility = View.GONE
+                        recyclerTransaction.visibility = View.VISIBLE
                     }
                     if (it.data?.status == HttpsURLConnection.HTTP_OK) {
                         this.transactionAdapter.apply {
@@ -93,19 +110,20 @@ class HomeFragment : Fragment() {
                             notifyDataSetChanged()
                         }
                     } else {
-                        Toast.makeText(context, it.data?.message, Toast.LENGTH_SHORT)
+                        Toast.makeText(context, it.message, Toast.LENGTH_SHORT)
                             .show()
                     }
                 }
                 State.ERROR -> {
                     binding.apply {
                         loadingIndicator.visibility = View.GONE
-                        rvTransaction.visibility
+                        recyclerTransaction.visibility = View.VISIBLE
                     }
                     Toast.makeText(context, it.message, Toast.LENGTH_SHORT)
                         .show()
-                    }
+
                 }
             }
         }
+    }
 }

@@ -10,13 +10,14 @@ data class Balance(
     val id: Int?,
     @SerializedName("image")
     val image: String?,
+    @SerializedName("lastname")
+    val lastname: String?,
+    @SerializedName("firstname")
+    val firstname: String?,
     @SerializedName("name")
     val name: String?,
     @SerializedName("phone")
     val phone: String?,
-    @SerializedName( "firstname")
-    val firstname: String?,
-    @SerializedName( "lastname")
-    val lastname: String?
-
+    @SerializedName("email")
+    val email: String?
 )

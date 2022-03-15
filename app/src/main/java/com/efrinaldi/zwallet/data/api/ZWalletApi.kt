@@ -1,9 +1,6 @@
 package com.efrinaldi.zwallet.data.api
 
-import com.efrinaldi.zwallet.model.APIResponse
-import com.efrinaldi.zwallet.model.Balance
-import com.efrinaldi.zwallet.model.Invoice
-import com.efrinaldi.zwallet.model.User
+import com.efrinaldi.zwallet.model.*
 import com.efrinaldi.zwallet.model.request.LoginRequest
 import com.efrinaldi.zwallet.model.request.RefreshTokenRequest
 import com.efrinaldi.zwallet.model.request.RegisterRequest
@@ -20,7 +17,7 @@ interface ZWalletApi {
     fun register(@Body request:RegisterRequest): Call<APIResponse<User>>
 
     @GET("home/getBalance")
-    suspend fun getBalance(): APIResponse<List<Balance>>
+    suspend fun getBalance(): APIResponse<List<UserDetail>>
 
     @POST("auth/refresh-token")
     fun refreshToken(@Body request: RefreshTokenRequest): Call<APIResponse<User>>
