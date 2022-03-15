@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.main.PersonalInformationFragment"
+    android:background="@color/backgroundColor">
+
+    <TextView
+        android:id="@+id/buttonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:drawableStartCompat="@drawable/ic_baseline_arrow_back_24" />
+
+    <TextView
+        android:id="@+id/textPersonalInformation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="15dp"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:text="Personal Information"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/buttonBack"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/textDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="17sp"
+        android:text="We got your personal information from the sign up process. If you want to make changes on your information, contact our support."
+        android:textColor="@color/greyDarkColor"
+        android:layout_marginHorizontal="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonBack"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/textDescription"
+            android:layout_margin="15dp"
+            android:padding="15dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/txFirstName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="First Name"
+                android:textSize="15sp"
+                android:padding="5dp"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/txFirstNamePerson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/txFirstName"
+                android:text="Efrinaldi Al-Zuhri"
+                android:padding="5dp"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/layoutFirstName"
+            android:layout_margin="15dp"
+            android:padding="15dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/txLastName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="Last Name"
+                android:textSize="15sp"
+                android:padding="5dp"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/txLastNamePerson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/txLastName"
+                android:text="Trinandhani"
+                android:padding="5dp"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutVerifiedEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/layoutLastName"
+            android:layout_margin="15dp"
+            android:padding="15dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/txVerifiedEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="Verified Email"
+                android:textSize="15sp"
+                android:padding="5dp"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/txVerifiedEmailPerson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/txVerifiedEmail"
+                android:text="efrinaldi24@gmail.com"
+                android:padding="5dp"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/layoutVerifiedEmail"
+            android:layout_margin="15dp"
+            android:padding="15dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/txPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="Phone Number"
+                android:textSize="15sp"
+                android:padding="5dp"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/txPhoneNumberPerson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/txPhoneNumber"
+                android:text="+62878 90 9011"
+                android:padding="5dp"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/txManage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Manage"
+                android:padding="5dp"
+                android:textColor="@color/primaryColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txPhoneNumberPerson"
+                app:layout_constraintTop_toBottomOf="@id/txPhoneNumber"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

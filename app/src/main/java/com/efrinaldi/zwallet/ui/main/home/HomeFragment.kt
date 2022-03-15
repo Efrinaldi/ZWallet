@@ -1,6 +1,6 @@
 package com.efrinaldi.zwallet.ui.main.home
 
-import adapter.TransactionAdapter
+import com.efrinaldi.zwallet.adapter.TransactionAdapter
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -66,7 +66,6 @@ class HomeFragment : Fragment() {
                 binding.apply {
                     balance.nominal.formatPrice(it.data.data?.get(0)?.balance.toString())
                     balance.telepon.text = it.data.data?.get(0)?.phone
-                    balance.tvTranscationName.text = it.data.data?.get(0)?.name
                 }
             }
             else {

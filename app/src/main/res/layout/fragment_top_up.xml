@@ -14,11 +14,11 @@
         android:padding="15dp"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
-        android:drawableStart="@drawable/ic_baseline_arrow_back_24"
         android:textColor="@color/greyDarkColor"
         android:layout_marginHorizontal="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:drawableStartCompat="@drawable/ic_baseline_arrow_back_24" />
 
     <TextView
         android:id="@+id/textButtonTopUp"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <LinearLayout
-        android:id="@+id/cardTopUp"
+        android:id="@+id/cardTopUpVA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -91,7 +91,7 @@
         android:textColor="@color/greyDarkColor"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardTopUp"/>
+        app:layout_constraintTop_toBottomOf="@id/cardTopUpVA"/>
 
     <TextView
         android:id="@+id/textHowToTopUp"

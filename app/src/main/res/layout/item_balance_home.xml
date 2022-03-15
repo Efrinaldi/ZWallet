@@ -52,12 +52,12 @@
 
         </LinearLayout>
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:id="@+id/tvTransactionNominal"
-            android:text="Bel"
+            android:id="@+id/notificationIcon"
+            android:src="@drawable/ic_baseline_notifications_24"
             android:textColor="@color/black"
             />
     </LinearLayout>
@@ -67,6 +67,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="10dp"
+        android:id="@+id/userbalance"
         android:background="@drawable/background_card_balance">
 
         <TextView
