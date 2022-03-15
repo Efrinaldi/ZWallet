@@ -4,6 +4,7 @@ import android.content.Context
 import com.efrinaldi.zwallet.data.api.ZWalletApi
 import com.efrinaldi.zwallet.utils.BASE_URL
 import com.efrinaldi.zwallet.utils.KEY_USER_REFRESH_TOKEN
+import com.efrinaldi.zwallet.utils.KEY_USER_TOKEN
 import com.efrinaldi.zwallet.utils.PREFS_NAME
 import okhttp3.Authenticator
 import okhttp3.OkHttpClient
@@ -17,9 +18,10 @@ class NetworkConfig(val context: Context?) {
     private fun getInterceptor(authenticator: Authenticator? =  null): OkHttpClient {
         val logging = HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BODY
-        val token = preferences?.getString(KEY_USER_REFRESH_TOKEN,"")
+        val token = preferences?.getString(KEY_USER_TOKEN,"")
         val client = OkHttpClient.Builder()
-            .addInterceptor(logging)
+        client.addInterceptor(logging)
+
         if(!token.isNullOrEmpty()){
             client.addInterceptor(TokenInterceptor(token))
         }
