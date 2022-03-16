@@ -1,4 +1,4 @@
-package com.efrinaldi.zwallet.ui.auth.login
+package com.efrinaldi.zwallet.ui.layout.auth.login
 
 import android.app.Application
 import androidx.lifecycle.LiveData

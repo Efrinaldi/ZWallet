@@ -1,4 +1,4 @@
-package com.efrinaldi.zwallet.ui.auth.login
+package com.efrinaldi.zwallet.ui.layout.auth.login
 
 import android.content.Context
 import android.content.Intent
@@ -13,14 +13,13 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.efrinaldi.zwallet.R
 import com.efrinaldi.zwallet.databinding.FragmentLoginBinding
-import com.efrinaldi.zwallet.ui.main.MainActivity
+import com.efrinaldi.zwallet.ui.layout.main.MainActivity
 import com.efrinaldi.zwallet.ui.viewModelsFactory
 import com.efrinaldi.zwallet.utils.*
-import com.efrinaldi.zwallet.widget.LoadingDialog
+import com.efrinaldi.zwallet.ui.widget.LoadingDialog
 import javax.net.ssl.HttpsURLConnection
 
 

@@ -1,4 +1,4 @@
-package com.efrinaldi.zwallet.ui.main
+package com.efrinaldi.zwallet.ui.layout.main
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -9,19 +9,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.efrinaldi.zwallet.R
-import com.efrinaldi.zwallet.databinding.FragmentPersonalInformationBinding
+import com.efrinaldi.zwallet.databinding.FragmentChangePasswordBinding
+import com.efrinaldi.zwallet.databinding.FragmentChangePinBinding
 import com.efrinaldi.zwallet.utils.PREFS_NAME
-import java.util.function.Predicate
 
-class PersonalInformationFragment : Fragment() {
-    private lateinit var binding: FragmentPersonalInformationBinding
+class ChangePinFragment : Fragment() {
+    private lateinit var binding: FragmentChangePinBinding
     private lateinit var prefs: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentPersonalInformationBinding.inflate(layoutInflater)
+        binding = FragmentChangePinBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -29,10 +29,8 @@ class PersonalInformationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         prefs = context?.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)!!
 
-
-
         binding.buttonBack.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_personalInformationFragment_to_profileFragment)
+            Navigation.findNavController(view).navigate(R.id.action_changePinFragment_to_profileFragment)
         }
     }
 

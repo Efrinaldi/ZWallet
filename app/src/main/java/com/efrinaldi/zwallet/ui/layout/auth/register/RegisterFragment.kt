@@ -1,4 +1,4 @@
-package com.efrinaldi.zwallet.ui.auth.register
+package com.efrinaldi.zwallet.ui.layout.auth.register
 
 import android.content.Context
 import android.content.Intent
@@ -18,7 +18,7 @@ import com.efrinaldi.zwallet.model.APIResponse
 import com.efrinaldi.zwallet.model.User
 import com.efrinaldi.zwallet.model.request.RegisterRequest
 import com.efrinaldi.zwallet.network.NetworkConfig
-import com.efrinaldi.zwallet.ui.auth.AuthActivity
+import com.efrinaldi.zwallet.ui.layout.auth.AuthActivity
 import com.efrinaldi.zwallet.utils.*
 import retrofit2.Call
 import retrofit2.Callback

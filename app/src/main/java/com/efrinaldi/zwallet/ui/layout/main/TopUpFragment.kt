@@ -1,4 +1,4 @@
-package com.efrinaldi.zwallet.ui.main
+package com.efrinaldi.zwallet.ui.layout.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

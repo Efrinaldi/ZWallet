@@ -1,4 +1,4 @@
-package com.efrinaldi.zwallet.widget
+package com.efrinaldi.zwallet.ui.widget
 
 import android.app.Activity
 import android.app.AlertDialog

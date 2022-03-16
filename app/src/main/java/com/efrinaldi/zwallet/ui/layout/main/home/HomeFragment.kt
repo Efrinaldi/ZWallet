@@ -1,6 +1,6 @@
-package com.efrinaldi.zwallet.ui.main.home
+package com.efrinaldi.zwallet.ui.layout.main.home
 
-import com.efrinaldi.zwallet.adapter.TransactionAdapter
+import com.efrinaldi.zwallet.ui.adapter.TransactionAdapter
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -9,24 +9,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.efrinaldi.zwallet.R
 import com.efrinaldi.zwallet.data.Transaction
 import com.efrinaldi.zwallet.databinding.FragmentHomeBinding
 import com.efrinaldi.zwallet.ui.viewModelsFactory
-import com.efrinaldi.zwallet.utils.Helper.formatPrice
 import com.efrinaldi.zwallet.utils.PREFS_NAME
 import com.efrinaldi.zwallet.utils.State
-import com.efrinaldi.zwallet.widget.LoadingDialog
+import com.efrinaldi.zwallet.ui.widget.LoadingDialog
+import com.efrinaldi.zwallet.utils.Helper.formatPrice
+import dagger.hilt.android.AndroidEntryPoint
 import javax.net.ssl.HttpsURLConnection
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
-    private val transactionData = mutableListOf<Transaction>()
     private lateinit var transactionAdapter: TransactionAdapter
     private lateinit var binding: FragmentHomeBinding
     private lateinit var prefs: SharedPreferences
-    private val viewModel: HomeViewModel by viewModelsFactory { HomeViewModel(requireActivity().application) }
+    private val viewModel: HomeViewModel by viewModels()
     private lateinit var loadingDialog: LoadingDialog
 
     override fun onCreateView(

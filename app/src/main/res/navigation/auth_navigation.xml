@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.efrinaldi.zwallet.ui.auth.login.LoginFragment"
+        android:name="com.efrinaldi.zwallet.ui.layout.auth.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.efrinaldi.zwallet.ui.auth.register.RegisterFragment"
+        android:name="com.efrinaldi.zwallet.ui.layout.auth.register.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register">
         <action
@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/resetPassword"
-        android:name="com.efrinaldi.zwallet.ui.auth.forgot.ResetPassword"
+        android:name="com.efrinaldi.zwallet.ui.layout.auth.forgot.ResetPassword"
         android:label="fragment_reset_password"
         tools:layout="@layout/fragment_reset_password">
         <action
@@ -41,7 +41,7 @@
 
     <fragment
         android:id="@+id/resetPassword2"
-        android:name="com.efrinaldi.zwallet.ui.auth.forgot.ResetPassword2"
+        android:name="com.efrinaldi.zwallet.ui.layout.auth.forgot.ResetPassword2"
         android:label="fragment_reset_password2"
         tools:layout="@layout/fragment_reset_password2" >
         <action

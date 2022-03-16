@@ -1,4 +1,4 @@
-package com.efrinaldi.zwallet.adapter
+package com.efrinaldi.zwallet.ui.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

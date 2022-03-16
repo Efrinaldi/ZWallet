@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.efrinaldi.zwallet.ui.main.home.HomeFragment"
+        android:name="com.efrinaldi.zwallet.ui.layout.main.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.efrinaldi.zwallet.ui.main.ProfileFragment"
+        android:name="com.efrinaldi.zwallet.ui.layout.main.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile">
         <action
@@ -28,15 +28,18 @@
         <action
             android:id="@+id/action_profileFragment_to_changePasswordFragment2"
             app:destination="@id/changePasswordFragment2" />
+        <action
+            android:id="@+id/action_profileFragment_to_changePinFragment"
+            app:destination="@id/changePinFragment" />
     </fragment>
     <fragment
         android:id="@+id/topUpFragment"
-        android:name="com.efrinaldi.zwallet.ui.main.TopUpFragment"
+        android:name="com.efrinaldi.zwallet.ui.layout.main.TopUpFragment"
         android:label="fragment_top_up"
         tools:layout="@layout/fragment_top_up" />
     <fragment
         android:id="@+id/personalInformationFragment"
-        android:name="com.efrinaldi.zwallet.ui.main.PersonalInformationFragment"
+        android:name="com.efrinaldi.zwallet.ui.layout.main.PersonalInformationFragment"
         android:label="fragment_personal_information"
         tools:layout="@layout/fragment_personal_information" >
         <action
@@ -45,11 +48,20 @@
     </fragment>
     <fragment
         android:id="@+id/changePasswordFragment2"
-        android:name="com.efrinaldi.zwallet.ui.main.ChangePasswordFragment"
+        android:name="com.efrinaldi.zwallet.ui.layout.main.ChangePasswordFragment"
         android:label="fragment_change_password"
         tools:layout="@layout/fragment_change_password" >
         <action
             android:id="@+id/action_changePasswordFragment2_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePinFragment"
+        android:name="com.efrinaldi.zwallet.ui.layout.main.ChangePinFragment"
+        android:label="fragment_change_pin"
+        tools:layout="@layout/fragment_change_pin" >
+        <action
+            android:id="@+id/action_changePinFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
 </navigation>

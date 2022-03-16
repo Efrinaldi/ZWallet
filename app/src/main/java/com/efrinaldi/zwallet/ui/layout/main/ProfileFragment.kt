@@ -1,4 +1,4 @@
-package com.efrinaldi.zwallet.ui.main
+package com.efrinaldi.zwallet.ui.layout.main
 
 import android.app.AlertDialog
 import android.content.Context
@@ -38,11 +38,17 @@ class ProfileFragment : Fragment() {
 
         prefs = context?.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)!!
 
-        binding.btnpersonal.setOnClickListener{
-            Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_personalInformationFragment)
+        binding.btnpersonal.setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_profileFragment_to_personalInformationFragment)
         }
-        binding.btnchangepassword.setOnClickListener{
-            Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_changePasswordFragment2)
+        binding.btnchangepassword.setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_profileFragment_to_changePasswordFragment2)
+        }
+        binding.btnchangepin.setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_profileFragment_to_changePinFragment)
         }
 
         binding.btnlogout.setOnClickListener {

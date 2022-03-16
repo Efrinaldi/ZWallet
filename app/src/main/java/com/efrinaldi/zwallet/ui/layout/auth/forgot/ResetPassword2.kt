@@ -1,4 +1,4 @@
-package com.efrinaldi.zwallet.ui.auth.forgot
+package com.efrinaldi.zwallet.ui.layout.auth.forgot
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,18 +8,16 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.navigation.Navigation
 import com.efrinaldi.zwallet.R
-import com.efrinaldi.zwallet.databinding.FragmentLoginBinding
-import com.efrinaldi.zwallet.databinding.FragmentResetPasswordBinding
+import com.efrinaldi.zwallet.databinding.FragmentResetPassword2Binding
 
-
-class ResetPassword : Fragment() {
-    private lateinit var binding: FragmentResetPasswordBinding
+class ResetPassword2 : Fragment() {
+    private lateinit var binding: FragmentResetPassword2Binding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentResetPasswordBinding.inflate(layoutInflater)
+        binding = FragmentResetPassword2Binding.inflate(layoutInflater)
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -27,7 +25,7 @@ class ResetPassword : Fragment() {
         requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
 
         binding.btnConfirm.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_resetPassword_to_resetPassword2)
+            Navigation.findNavController(view).navigate(R.id.action_resetPassword2_to_loginFragment)
         }
     }
 

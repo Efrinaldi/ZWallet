@@ -1,8 +1,7 @@
-package com.efrinaldi.zwallet.ui.auth
+package com.efrinaldi.zwallet.ui.layout.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.efrinaldi.zwallet.R
 import com.efrinaldi.zwallet.databinding.ActivityAuthBinding
 
 
