@@ -53,6 +53,9 @@ class HomeFragment : Fragment() {
         binding.buttonTopUp.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_topUpFragment)
         }
+        binding.buttonTransfer.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_searchReceiverFragment)
+        }
 
     }
 

@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_topUpFragment"
             app:destination="@id/topUpFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchReceiverFragment"
+            app:destination="@id/searchReceiverFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -67,5 +70,14 @@
         <action
             android:id="@+id/action_changePinFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchReceiverFragment"
+        android:name="com.efrinaldi.zwallet.ui.layout.main.SearchReceiverFragment"
+        android:label="fragment_search_receiver"
+        tools:layout="@layout/fragment_search_receiver" >
+        <action
+            android:id="@+id/action_searchReceiverFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>
