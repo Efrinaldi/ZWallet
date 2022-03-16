@@ -83,5 +83,8 @@ class RegisterFragment : Fragment() {
         binding.gotologin.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.registerActionLogin)
         }
+        binding.btnSignup.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_registerFragment_to_inputOtpFragment)
+        }
     }
 }

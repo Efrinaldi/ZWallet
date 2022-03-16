@@ -36,7 +36,11 @@
         android:id="@+id/topUpFragment"
         android:name="com.efrinaldi.zwallet.ui.layout.main.TopUpFragment"
         android:label="fragment_top_up"
-        tools:layout="@layout/fragment_top_up" />
+        tools:layout="@layout/fragment_top_up" >
+        <action
+            android:id="@+id/action_topUpFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/personalInformationFragment"
         android:name="com.efrinaldi.zwallet.ui.layout.main.PersonalInformationFragment"

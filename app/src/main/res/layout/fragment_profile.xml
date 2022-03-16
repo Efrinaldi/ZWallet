@@ -7,7 +7,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.layout.main.ProfileFragment"
     android:background="@color/backgroundColor">
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
