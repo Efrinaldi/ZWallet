@@ -26,4 +26,8 @@ class LoadingDialog (activity: Activity) {
     fun stop(){
         alertDialog.cancel()
     }
+
+    fun dismiss(){
+        alertDialog.dismiss()
+    }
 }

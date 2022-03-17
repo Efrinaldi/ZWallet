@@ -1,4 +1,4 @@
-package com.efrinaldi.zwallet.ui.layout.main
+package com.efrinaldi.zwallet.ui.layout.main.topup
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -9,18 +9,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.efrinaldi.zwallet.R
-import com.efrinaldi.zwallet.databinding.FragmentSearchReceiverBinding
+import com.efrinaldi.zwallet.databinding.FragmentTopUpBinding
 import com.efrinaldi.zwallet.utils.PREFS_NAME
 
-class SearchReceiverFragment : Fragment() {
-    private lateinit var binding: FragmentSearchReceiverBinding
+class TopUpFragment : Fragment() {
+    private lateinit var binding: FragmentTopUpBinding
     private lateinit var prefs: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSearchReceiverBinding.inflate(layoutInflater)
+        binding = FragmentTopUpBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -28,11 +28,10 @@ class SearchReceiverFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         prefs = context?.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)!!
 
-
-
         binding.btnBack.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_searchReceiverFragment_to_homeFragment)
+            Navigation.findNavController(view).navigate(R.id.action_topUpFragment_to_homeFragment)
         }
+
     }
 
 }

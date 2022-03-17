@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.efrinaldi.zwallet.ui.layout.main.ProfileFragment"
+        android:name="com.efrinaldi.zwallet.ui.layout.main.profile.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile">
         <action
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/topUpFragment"
-        android:name="com.efrinaldi.zwallet.ui.layout.main.TopUpFragment"
+        android:name="com.efrinaldi.zwallet.ui.layout.main.topup.TopUpFragment"
         android:label="fragment_top_up"
         tools:layout="@layout/fragment_top_up" >
         <action
@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/personalInformationFragment"
-        android:name="com.efrinaldi.zwallet.ui.layout.main.PersonalInformationFragment"
+        android:name="com.efrinaldi.zwallet.ui.layout.main.profile.PersonalInformationFragment"
         android:label="fragment_personal_information"
         tools:layout="@layout/fragment_personal_information" >
         <action
@@ -73,7 +73,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchReceiverFragment"
-        android:name="com.efrinaldi.zwallet.ui.layout.main.SearchReceiverFragment"
+        android:name="com.efrinaldi.zwallet.ui.layout.main.transfer.SearchReceiverFragment"
         android:label="fragment_search_receiver"
         tools:layout="@layout/fragment_search_receiver" >
         <action

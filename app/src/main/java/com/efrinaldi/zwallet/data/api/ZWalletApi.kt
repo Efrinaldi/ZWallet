@@ -16,6 +16,9 @@ interface ZWalletApi {
     @POST("auth/signup")
     fun register(@Body request:RegisterRequest): Call<APIResponse<User>>
 
+    @GET("user/myProfile")
+    suspend fun getProfile(): APIResponse<UserDetail>
+
     @GET("home/getBalance")
     suspend fun getBalance(): APIResponse<List<UserDetail>>
 

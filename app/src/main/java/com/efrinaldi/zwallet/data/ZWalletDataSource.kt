@@ -38,4 +38,13 @@ class ZWalletDataSource @Inject constructor(private val apiClient: ZWalletApi) {
             emit(Resource.error(null,e.localizedMessage))
         }
     }
+    fun getProfileInfo() = liveData(Dispatchers.IO) {
+        emit(Resource.loading(null))
+        try {
+            val response = apiClient.getProfile()
+            emit(Resource.success(response))
+        } catch (e: Exception) {
+            emit(Resource.error(null, e.localizedMessage))
+        }
+    }
 }

@@ -1,6 +1,5 @@
 package com.efrinaldi.zwallet.ui
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -12,8 +11,9 @@ import com.efrinaldi.zwallet.ui.layout.auth.AuthActivity
 import com.efrinaldi.zwallet.ui.layout.main.MainActivity
 import com.efrinaldi.zwallet.utils.KEY_LOGGED_IN
 import com.efrinaldi.zwallet.utils.PREFS_NAME
+import dagger.hilt.android.AndroidEntryPoint
 
-@SuppressLint("CustomSplashScreen")
+@AndroidEntryPoint
 class SplashScreenAcitvity : AppCompatActivity() {
     private lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {

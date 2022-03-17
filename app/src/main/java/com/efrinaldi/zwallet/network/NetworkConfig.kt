@@ -18,12 +18,15 @@ class NetworkConfig(val context: Context?) {
     private fun getInterceptor(authenticator: Authenticator? =  null): OkHttpClient {
         val logging = HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BODY
+        val prefs = context?.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
         val token = preferences?.getString(KEY_USER_TOKEN,"")
         val client = OkHttpClient.Builder()
-        client.addInterceptor(logging)
+            .addInterceptor(logging)
 
         if(!token.isNullOrEmpty()){
-            client.addInterceptor(TokenInterceptor(token))
+            client.addInterceptor(TokenInterceptor{
+                preferences?.getString(KEY_USER_TOKEN,"").toString()
+            })
         }
         if (authenticator != null) {
             client.authenticator(authenticator)

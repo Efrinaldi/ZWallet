@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.layout.main.PersonalInformationFragment"
+    tools:context=".ui.layout.main.profile.PersonalInformationFragment"
     android:background="@color/backgroundColor">
 
     <TextView
@@ -54,7 +54,7 @@
             android:background="@color/white">
 
             <TextView
-                android:id="@+id/txFirstName"
+                android:id="@+id/titleFirstName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
@@ -64,10 +64,10 @@
                 tools:ignore="MissingConstraints" />
 
             <TextView
-                android:id="@+id/txFirstNamePerson"
+                android:id="@+id/firstName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/txFirstName"
+                app:layout_constraintTop_toBottomOf="@id/titleFirstName"
                 android:text="Efrinaldi Al-Zuhri"
                 android:padding="5dp"
                 android:textSize="20sp"
@@ -84,7 +84,7 @@
             android:background="@color/white">
 
             <TextView
-                android:id="@+id/txLastName"
+                android:id="@+id/titleLastName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
@@ -94,10 +94,10 @@
                 tools:ignore="MissingConstraints" />
 
             <TextView
-                android:id="@+id/txLastNamePerson"
+                android:id="@+id/lastName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/txLastName"
+                app:layout_constraintTop_toBottomOf="@id/titleLastName"
                 android:text="Trinandhani"
                 android:padding="5dp"
                 android:textSize="20sp"
@@ -114,7 +114,7 @@
             android:background="@color/white">
 
             <TextView
-                android:id="@+id/txVerifiedEmail"
+                android:id="@+id/titleVerifiedEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
@@ -124,10 +124,10 @@
                 tools:ignore="MissingConstraints" />
 
             <TextView
-                android:id="@+id/txVerifiedEmailPerson"
+                android:id="@+id/verifiedEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/txVerifiedEmail"
+                app:layout_constraintTop_toBottomOf="@id/titleVerifiedEmail"
                 android:text="efrinaldi24@gmail.com"
                 android:padding="5dp"
                 android:textSize="20sp"
@@ -144,7 +144,7 @@
             android:background="@color/white">
 
             <TextView
-                android:id="@+id/txPhoneNumber"
+                android:id="@+id/titlePhoneNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
@@ -154,10 +154,10 @@
                 tools:ignore="MissingConstraints" />
 
             <TextView
-                android:id="@+id/txPhoneNumberPerson"
+                android:id="@+id/phoneNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/txPhoneNumber"
+                app:layout_constraintTop_toBottomOf="@id/titlePhoneNumber"
                 android:text="+62878 90 9011"
                 android:padding="5dp"
                 android:textSize="20sp"
@@ -168,12 +168,12 @@
                 android:id="@+id/txManage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Manage"
                 android:padding="5dp"
+                android:text="Manage"
                 android:textColor="@color/primaryColor"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/txPhoneNumberPerson"
-                app:layout_constraintTop_toBottomOf="@id/txPhoneNumber"/>
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="25dp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
