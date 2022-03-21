@@ -7,6 +7,7 @@
         <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/background_button_auth.xml" value="0.1" />
         <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/background_button_auth_active.xml" value="0.1" />
         <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/background_card_balance.xml" value="0.1515" />
+        <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/background_change_pin.xml" value="0.1365" />
         <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/background_image_item.xml" value="0.1" />
         <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/background_input.xml" value="0.1325" />
         <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/background_item_transcation_home.xml" value="0.1" />
@@ -21,12 +22,14 @@
         <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_blank.xml" value="0.1796875" />
         <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_change_password.xml" value="0.32882882882882886" />
         <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_change_pin.xml" value="0.15" />
+        <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_create_pin.xml" value="0.1796875" />
+        <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_create_pin_success.xml" value="0.1796875" />
         <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_home.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_input_amount.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_input_otp.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_login.xml" value="0.22" />
         <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_personal_information.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_pin_transfer_confirmation.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_pin_transfer_confirmation.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_profile.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_register.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/efrinaldi_alzuhri/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_reset_password.xml" value="0.16666666666666666" />

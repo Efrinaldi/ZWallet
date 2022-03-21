@@ -59,12 +59,12 @@ class PinTransferConfirmationFragment : Fragment() {
         var receiver: String ?= null
         var request: TransferRequest ?= null
 
-        val numberPin = binding.inputPin1.text.toString() +
-                binding.inputPin2.text.toString() +
-                binding.inputPin3.text.toString() +
-                binding.inputPin4.text.toString() +
-                binding.inputPin5.text.toString() +
-                binding.inputPin6.text.toString()
+        val numberPin = binding.pin1.text.toString() +
+                binding.pin2.text.toString() +
+                binding.pin3.text.toString() +
+                binding.pin4.text.toString() +
+                binding.pin5.text.toString() +
+                binding.pin6.text.toString()
 
         viewModel.getSelectedContact().observe(viewLifecycleOwner) {
             var transferUserName = "${it?.name}"
@@ -100,12 +100,12 @@ class PinTransferConfirmationFragment : Fragment() {
     }
 
     fun editTextPin() {
-        pin.add(0, binding.inputPin1)
-        pin.add(1, binding.inputPin2)
-        pin.add(2, binding.inputPin3)
-        pin.add(3, binding.inputPin4)
-        pin.add(4, binding.inputPin5)
-        pin.add(5, binding.inputPin6)
+        pin.add(0, binding.pin1)
+        pin.add(1, binding.pin2)
+        pin.add(2, binding.pin3)
+        pin.add(3, binding.pin4)
+        pin.add(4, binding.pin5)
+        pin.add(5, binding.pin6)
         pinHandler()
     }
 

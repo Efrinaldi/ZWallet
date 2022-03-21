@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_loginFragment_to_resetPassword"
             app:destination="@id/resetPassword" />
+        <action
+            android:id="@+id/action_loginFragment_to_createPinFragment"
+            app:destination="@id/createPinFragment" />
 
 
     </fragment>
@@ -58,6 +61,24 @@
         tools:layout="@layout/fragment_input_otp" >
         <action
             android:id="@+id/action_inputOtpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPinFragment"
+        android:name="com.efrinaldi.zwallet.ui.layout.auth.register.CreatePinFragment"
+        android:label="fragment_create_pin"
+        tools:layout="@layout/fragment_create_pin" >
+        <action
+            android:id="@+id/action_createPinFragment_to_createPinSuccessFragment"
+            app:destination="@id/createPinSuccessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPinSuccessFragment"
+        android:name="com.efrinaldi.zwallet.ui.layout.auth.register.CreatePinSuccessFragment"
+        android:label="fragment_create_pin_success"
+        tools:layout="@layout/fragment_create_pin_success" >
+        <action
+            android:id="@+id/action_createPinSuccessFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
 </navigation>

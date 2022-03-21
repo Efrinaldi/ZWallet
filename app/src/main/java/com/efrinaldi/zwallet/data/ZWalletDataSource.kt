@@ -3,6 +3,7 @@ package com.efrinaldi.zwallet.data
 import androidx.lifecycle.liveData
 import com.efrinaldi.zwallet.data.api.ZWalletApi
 import com.efrinaldi.zwallet.model.request.LoginRequest
+import com.efrinaldi.zwallet.model.request.SetPinRequest
 import com.efrinaldi.zwallet.model.request.TransferRequest
 import com.efrinaldi.zwallet.utils.Resource
 import kotlinx.coroutines.Dispatchers
@@ -62,6 +63,16 @@ class ZWalletDataSource @Inject constructor(private val apiClient: ZWalletApi) {
         emit(Resource.loading(null))
         try {
             val response = apiClient.transfer(data, pin)
+            emit(Resource.success(response))
+        } catch (e: Exception){
+            emit(Resource.error(null, e.localizedMessage))
+        }
+    }
+
+    fun setPin(request: SetPinRequest) = liveData(Dispatchers.IO) {
+        emit(Resource.loading(null))
+        try {
+            val response = apiClient.setPin(request)
             emit(Resource.success(response))
         } catch (e: Exception){
             emit(Resource.error(null, e.localizedMessage))

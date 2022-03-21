@@ -4,59 +4,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.layout.main.transfer.PinTransferConfirmationFragment"
+    tools:context=".ui.layout.auth.register.CreatePinFragment"
     android:background="@color/backgroundColor">
 
     <TextView
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
+        android:id="@+id/textLogo"
+        android:text="@string/app_name"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="5dp"
+        android:textColor="@color/primaryColor"
+        android:gravity="center_horizontal"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:drawableStartCompat="@drawable/ic_baseline_arrow_back_24" />
-
-    <TextView
-        android:id="@+id/textEnterPin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingVertical="15dp"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
-        android:text="Enter Your PIN"
-        style="@style/TextView.Bold"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@id/btnBack"
-        app:layout_constraintTop_toTopOf="parent"/>
+        style="@style/TextView.Logo"
+        android:layout_marginTop="100dp"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/containerEnterPin"
+        android:id="@+id/containerForm"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/background_auth"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnBack"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textLogo">
 
         <TextView
-            android:id="@+id/textDescEnterPin"
-            style="@style/TextView"
+            android:id="@+id/textCreatePin"
+            android:text="Create Security PIN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:text="Enter your 6 digits PIN for confirmation to continue transferring money."
+            android:layout_marginTop="30dp"
+            android:textAlignment="center"
+            style="@style/TextView.Logo"
             android:textColor="@color/greyDarkColor"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/textCreatePinDesc"
+            android:text="Create a PIN that’s contain 6 digits number for security purpose in Zwallet."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="60dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textCreatePin"
+            style="@style/TextView.SplashScreen.Description"
+            android:textColor="@color/greyDarkColor"/>
+
+
 
         <LinearLayout
             android:gravity="center"
@@ -71,7 +73,7 @@
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDescEnterPin">
+            app:layout_constraintTop_toBottomOf="@+id/textCreatePinDesc">
 
             <EditText
                 android:id="@+id/pin1"
@@ -144,22 +146,24 @@
             </EditText>
         </LinearLayout>
 
+
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnTransferNow"
-            style="@style/TextView.Medium"
+            android:id="@+id/btnConfirm"
+            android:text="Confirm"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:background="@drawable/background_button_auth"
-            android:paddingHorizontal="24dp"
             android:paddingVertical="14dp"
-            android:text="Transfer Now"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingHorizontal="24dp"
+            android:layout_margin="16dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/white"
+            android:background="@drawable/background_button_auth"
+            style="@style/TextView.Medium"
+            android:textAllCaps="false"/>
 
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

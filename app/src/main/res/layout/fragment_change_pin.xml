@@ -45,95 +45,89 @@
         app:layout_constraintTop_toBottomOf="@id/buttonBack"/>
 
     <LinearLayout
-        android:id="@+id/input_pin_box"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textDescription"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
         android:gravity="center"
-        android:layout_marginTop="40dp">
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal"
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="wrap_content"
+        android:layout_height="61dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDescription">
 
         <EditText
-            android:id="@+id/inputPin1"
+            android:id="@+id/pin1"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:background="@drawable/background_change_pin"
+            android:textColor="@color/black"
+            android:layout_marginEnd="10dp"
             android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="4dp"
-            android:inputType="number"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:textSize="24sp"
-            android:maxLength="1"
-            android:singleLine="true"
-            android:nextFocusForward="@+id/inputPin2"
-            android:background="@color/white"/>
+            android:layout_height="match_parent"
+            android:inputType="number">
+        </EditText>
         <EditText
-            android:id="@+id/inputPin2"
+            android:id="@+id/pin2"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:background="@drawable/background_change_pin"
+            android:textColor="@color/black"
+            android:layout_marginEnd="10dp"
             android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="4dp"
+            android:layout_height="match_parent"
+            android:digits="1234567890"
             android:inputType="number"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:textSize="24sp"
-            android:maxLength="1"
-            android:singleLine="true"
-            android:nextFocusForward="@+id/inputPin3"
-            android:background="@color/white"/>
+            android:maxLength="1">
+        </EditText>
         <EditText
-            android:id="@+id/inputPin3"
+            android:id="@+id/pin3"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:background="@drawable/background_change_pin"
+            android:textColor="@color/black"
+            android:layout_marginEnd="10dp"
             android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="4dp"
-            android:inputType="number"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:textSize="24sp"
-            android:maxLength="1"
-            android:singleLine="true"
-            android:nextFocusForward="@+id/inputPin4"
-            android:background="@color/white"/>
+            android:layout_height="match_parent"
+            android:inputType="number">
+        </EditText>
         <EditText
-            android:id="@+id/inputPin4"
+            android:id="@+id/pin4"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:background="@drawable/background_change_pin"
+            android:textColor="@color/black"
+            android:layout_marginEnd="10dp"
             android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="4dp"
-            android:inputType="number"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:textSize="24sp"
-            android:maxLength="1"
-            android:imeOptions="actionNext"
-            android:singleLine="true"
-            android:nextFocusForward="@+id/inputPin5"
-            android:background="@color/white"/>
+            android:layout_height="match_parent"
+            android:inputType="number">
+        </EditText>
         <EditText
-            android:id="@+id/inputPin5"
+            android:id="@+id/pin5"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:background="@drawable/background_change_pin"
+            android:textColor="@color/black"
+            android:layout_marginEnd="10dp"
             android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="4dp"
-            android:inputType="number"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:textSize="24sp"
-            android:maxLength="1"
-            android:imeOptions="actionNext"
-            android:singleLine="true"
-            android:nextFocusForward="@+id/inputPin6"
-            android:background="@color/white"/>
+            android:layout_height="match_parent"
+            android:inputType="number">
+        </EditText>
         <EditText
-            android:id="@+id/inputPin6"
+            android:id="@+id/pin6"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:background="@drawable/background_change_pin"
+            android:textColor="@color/black"
             android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="4dp"
+            android:layout_height="match_parent"
+            android:digits="1234567890"
             android:inputType="number"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:textSize="24sp"
-            android:maxLength="1"
-            android:background="@color/white"/>
+            android:maxLength="1">
+        </EditText>
     </LinearLayout>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_continue_to_new_pin"

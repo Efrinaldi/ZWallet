@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.efrinaldi.zwallet.data.ZWalletDataSource
 import com.efrinaldi.zwallet.model.APIResponse
 import com.efrinaldi.zwallet.model.User
+import com.efrinaldi.zwallet.model.request.SetPinRequest
 import com.efrinaldi.zwallet.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -14,6 +15,10 @@ class LoginViewModel @Inject constructor(private var dataSource: ZWalletDataSour
 
     fun login(email: String, password: String) : LiveData<Resource<APIResponse<User>?>> {
         return dataSource.login(email, password)
+    }
+
+    fun setPin(request: SetPinRequest): LiveData<Resource<APIResponse<String>?>> {
+        return dataSource.setPin(request)
     }
 
 }
