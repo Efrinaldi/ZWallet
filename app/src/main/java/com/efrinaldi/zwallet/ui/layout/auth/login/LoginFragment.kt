@@ -61,8 +61,9 @@ class LoginFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            val response = viewModel.login(binding.inputEmail.text.toString(),
-            binding.inputPassword.text.toString()
+            val response = viewModel.login(
+                binding.inputEmail.text.toString(),
+                binding.inputPassword.text.toString()
             )
 
             response.observe(viewLifecycleOwner) {

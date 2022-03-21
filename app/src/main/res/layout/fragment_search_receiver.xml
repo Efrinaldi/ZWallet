@@ -67,19 +67,6 @@
             android:drawableLeft="@drawable/ic_baseline_search_24" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quick Access"
-            android:padding="5dp"/>
-
-        <include
-            android:id="@+id/quickaccess"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            layout="@layout/item_quick_access" />
-
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"

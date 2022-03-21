@@ -1,13 +1,9 @@
 package com.efrinaldi.zwallet.data.api
 
 import com.efrinaldi.zwallet.model.*
-import com.efrinaldi.zwallet.model.request.LoginRequest
-import com.efrinaldi.zwallet.model.request.RefreshTokenRequest
-import com.efrinaldi.zwallet.model.request.RegisterRequest
+import com.efrinaldi.zwallet.model.request.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ZWalletApi {
     @POST("auth/login")
@@ -27,4 +23,10 @@ interface ZWalletApi {
 
     @GET("home/getInvoice")
     suspend fun getInvoice(): APIResponse<List<Invoice>>
+
+    @GET("tranfer/contactUser")
+    suspend fun getContactUser(): APIResponse<List<Contact>>
+
+    @POST("tranfer/newTranfer")
+    suspend fun transfer(@Body request: TransferRequest, @Header("x-access-PIN") pin: String): APITransfer<Transfer>
 }

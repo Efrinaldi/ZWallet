@@ -2,7 +2,6 @@ package com.efrinaldi.zwallet.ui.layout.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.efrinaldi.zwallet.R
 import com.efrinaldi.zwallet.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 

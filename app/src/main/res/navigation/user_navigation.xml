@@ -79,5 +79,56 @@
         <action
             android:id="@+id/action_searchReceiverFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_searchReceiverFragment_to_inputAmountFragment2"
+            app:destination="@id/inputAmountFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/inputAmountFragment2"
+        android:name="com.efrinaldi.zwallet.ui.layout.main.transfer.InputAmountFragment"
+        android:label="fragment_input_amount"
+        tools:layout="@layout/fragment_input_amount" >
+        <action
+            android:id="@+id/action_inputAmountFragment2_to_transferConfirmationFragment2"
+            app:destination="@id/transferConfirmationFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/transferConfirmationFragment2"
+        android:name="com.efrinaldi.zwallet.ui.layout.main.transfer.TransferConfirmationFragment"
+        android:label="fragment_transfer_confirmation"
+        tools:layout="@layout/fragment_transfer_confirmation" >
+        <action
+            android:id="@+id/action_transferConfirmationFragment2_to_pinTransferConfirmationFragment2"
+            app:destination="@id/pinTransferConfirmationFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/pinTransferConfirmationFragment2"
+        android:name="com.efrinaldi.zwallet.ui.layout.main.transfer.PinTransferConfirmationFragment"
+        android:label="fragment_pin_transfer_confirmation"
+        tools:layout="@layout/fragment_pin_transfer_confirmation" >
+        <action
+            android:id="@+id/action_pinTransferConfirmationFragment2_to_transferSuccessFragment3"
+            app:destination="@id/transferSuccessFragment3" />
+        <action
+            android:id="@+id/action_pinTransferConfirmationFragment2_to_transferFailedFragment3"
+            app:destination="@id/transferFailedFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/transferSuccessFragment3"
+        android:name="com.efrinaldi.zwallet.ui.layout.main.transfer.TransferSuccessFragment"
+        android:label="fragment_transfer_success"
+        tools:layout="@layout/fragment_transfer_success" >
+        <action
+            android:id="@+id/action_transferSuccessFragment3_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transferFailedFragment3"
+        android:name="com.efrinaldi.zwallet.ui.layout.main.transfer.TransferFailedFragment"
+        android:label="fragment_transfer_failed"
+        tools:layout="@layout/fragment_transfer_failed" >
+        <action
+            android:id="@+id/action_transferFailedFragment3_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>
