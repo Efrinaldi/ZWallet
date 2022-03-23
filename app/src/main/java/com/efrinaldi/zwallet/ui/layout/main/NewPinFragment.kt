@@ -1,60 +1,119 @@
 package com.efrinaldi.zwallet.ui.layout.main
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.Toast
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation
 import com.efrinaldi.zwallet.R
+import com.efrinaldi.zwallet.databinding.FragmentNewPinBinding
+import com.efrinaldi.zwallet.model.request.SetPinRequest
+import com.efrinaldi.zwallet.ui.layout.main.profile.ProfileViewModel
+import com.efrinaldi.zwallet.ui.widget.LoadingDialog
+import com.efrinaldi.zwallet.utils.State
+import dagger.hilt.android.AndroidEntryPoint
+import javax.net.ssl.HttpsURLConnection
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [NewPinFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+@AndroidEntryPoint
 class NewPinFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentNewPinBinding
+    private val viewModel: ProfileViewModel by activityViewModels()
+    private lateinit var loadingDialog: LoadingDialog
+    var pin = mutableListOf<EditText>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_new_pin, container, false)
+        binding = FragmentNewPinBinding.inflate(layoutInflater)
+        loadingDialog = LoadingDialog(requireActivity())
+        return binding.root
     }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        editTextPin()
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment NewPinFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            NewPinFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        binding.buttonChangePin.setOnClickListener {
+            val request = SetPinRequest(
+                binding.pin1.text.toString() +
+                        binding.pin2.text.toString() +
+                        binding.pin3.text.toString() +
+                        binding.pin4.text.toString() +
+                        binding.pin5.text.toString() +
+                        binding.pin6.text.toString()
+            )
+            viewModel.setPin(request).observe(viewLifecycleOwner) {
+                when (it.state) {
+                    State.LOADING -> {
+                        loadingDialog.start("Processing your request")
+                    }
+                    State.SUCCESS -> {
+                        if (it.data?.status == HttpsURLConnection.HTTP_OK) {
+                            loadingDialog.stop()
+                            Navigation.findNavController(view).navigate(R.id.action_newPinFragment2_to_profileFragment)
+                        } else {
+                            Toast.makeText(context, it.data?.message, Toast.LENGTH_SHORT)
+                                .show()
+                        }
+                    }
+                    State.ERROR -> {
+                        loadingDialog.stop()
+                        Toast.makeText(context, it.message, Toast.LENGTH_SHORT)
+                            .show()
+                    }
                 }
             }
+        }
+    }
+
+    fun editTextPin() {
+        pin.add(0, binding.pin1)
+        pin.add(1, binding.pin2)
+        pin.add(2, binding.pin3)
+        pin.add(3, binding.pin4)
+        pin.add(4, binding.pin5)
+        pin.add(5, binding.pin6)
+        pinHandler()
+    }
+
+    fun pinHandler() {
+        for(i in 0..5) {
+            pin.get(i).addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+                }
+
+                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    pin.get(i).setBackgroundResource(R.drawable.edit_text_after)
+                }
+
+                override fun afterTextChanged(p0: Editable?) {
+                    if (i ==5 && !pin.get(i).getText().toString().isEmpty()) {
+                        pin.get(i).clearFocus()
+                    } else if (!pin.get(i).getText().toString().isEmpty()) {
+                        pin.get(i + 1).requestFocus()
+                    }
+                }
+            })
+
+            pin.get(i).setOnKeyListener(View.OnKeyListener { view, x, keyEvent ->
+                if (keyEvent.action !== KeyEvent.ACTION_DOWN) {
+                    return@OnKeyListener false
+                }
+                if (x == KeyEvent.KEYCODE_DEL && pin.get(i).getText().toString().isEmpty() && i != 0) {
+                    pin.get(i - 1).setText("")
+                    pin.get(i - 1).requestFocus()
+                    pin.get(i - 1).setBackgroundResource(R.drawable.edit_text)
+                }
+                false
+            })
+        }
     }
 }
