@@ -23,7 +23,6 @@ import javax.net.ssl.HttpsURLConnection
 
 @AndroidEntryPoint
 class SearchReceiverFragment : Fragment() {
-    private val transactionData = mutableListOf<Contact>()
     private lateinit var contactAdapter: ContactAdapter
     private lateinit var binding: FragmentSearchReceiverBinding
     private lateinit var prefs: SharedPreferences
@@ -35,18 +34,24 @@ class SearchReceiverFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSearchReceiverBinding.inflate(layoutInflater)
-        loadingDialog = LoadingDialog(requireActivity())
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.btnBack.setOnClickListener{
+            Navigation.findNavController(view).popBackStack()
+        }
         this.contactAdapter = ContactAdapter(listOf())
         { contact, _ ->
             viewModel.setSelectedContact(contact)
             Navigation.findNavController(view)
                 .navigate(R.id.action_searchReceiverFragment_to_inputAmountFragment2)
+
+            prefs = context?.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)!!
+            loadingDialog = LoadingDialog(requireActivity())
+
         }
         binding.recyclerTransactionContact.apply {
             layoutManager = LinearLayoutManager(context)

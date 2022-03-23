@@ -32,4 +32,8 @@ interface ZWalletApi {
 
     @PATCH("auth/PIN")
     suspend fun setPin(@Body request: SetPinRequest): APIResponse<String>
+
+    @PATCH("/user/changePassword")
+    fun changePassword(@Body request: ChangePasswordRequest): Call <APIResponse<User>>
+
 }
