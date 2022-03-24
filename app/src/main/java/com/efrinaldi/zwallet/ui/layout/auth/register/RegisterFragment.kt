@@ -43,6 +43,7 @@ class RegisterFragment : Fragment() {
         prefs = activity?.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)!!
 
         binding.btnSignup.setOnClickListener {
+            prefs.edit().putString(KEY_REGISTER_MAIL, binding.inputemailsginup.text.toString()).apply()
             if(binding.inputusername.text.isNullOrEmpty() || binding.inputemailsginup.text.isNullOrEmpty()|| binding.inputPassword.text.isNullOrEmpty()){
                 Toast.makeText(activity, "email/password is empty", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -65,9 +66,10 @@ class RegisterFragment : Fragment() {
                             val res = response.body()!!.message
                             Toast.makeText(context, res, Toast.LENGTH_SHORT).show()
                             Handler().postDelayed({
-                                val intent = Intent(activity, AuthActivity::class.java)
-                                startActivity(intent)
-                                activity?.finish()
+                                Navigation.findNavController(view).navigate(R.id.action_registerFragment_to_inputOtpFragment)
+//                                val intent = Intent(activity, AuthActivity::class.java)
+//                                startActivity(intent)
+//                                activity?.finish()
                             }, 1000)
                         }
                     }
@@ -82,9 +84,6 @@ class RegisterFragment : Fragment() {
 
         binding.gotologin.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.registerActionLogin)
-        }
-        binding.btnSignup.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_registerFragment_to_inputOtpFragment)
         }
     }
 }

@@ -39,4 +39,6 @@ interface ZWalletApi {
     @PATCH("/user/changePassword")
     fun changePassword(@Body request: ChangePasswordRequest): Call <APIResponse<User>>
 
+    @GET("auth/activate/{email}/{otp}")
+    suspend fun otpActivation(@Path("email") email: String, @Path("otp") otp: String): APIResponse<User>
 }
