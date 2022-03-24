@@ -52,6 +52,9 @@
         <action
             android:id="@+id/action_personalInformationFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_personalInformationFragment_to_managePhoneFragment"
+            app:destination="@id/managePhoneFragment" />
     </fragment>
     <fragment
         android:id="@+id/changePasswordFragment2"
@@ -143,4 +146,9 @@
             android:id="@+id/action_newPinFragment2_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/managePhoneFragment"
+        android:name="com.efrinaldi.zwallet.ui.layout.main.ManagePhoneFragment"
+        android:label="fragment_manage_phone"
+        tools:layout="@layout/fragment_manage_phone" />
 </navigation>

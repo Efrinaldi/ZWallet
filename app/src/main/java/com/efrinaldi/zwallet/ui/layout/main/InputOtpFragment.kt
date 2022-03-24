@@ -63,7 +63,7 @@ class InputOtpFragment : Fragment() {
                     }
                     State.SUCCESS->{
                         loadingDialog.stop()
-                        Toast.makeText(context, it.message.toString(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Account Activated", Toast.LENGTH_SHORT).show()
 
                         val intent = Intent(activity, AuthActivity::class.java)
                         startActivity(intent)

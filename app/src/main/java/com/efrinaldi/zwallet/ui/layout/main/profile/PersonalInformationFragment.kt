@@ -42,6 +42,10 @@ class PersonalInformationFragment : Fragment() {
         binding.buttonBack.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_personalInformationFragment_to_profileFragment)
         }
+
+        binding.txManage.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.action_personalInformationFragment_to_managePhoneFragment)
+        }
         prepareData()
     }
 

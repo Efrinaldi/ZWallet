@@ -3,6 +3,7 @@ package com.efrinaldi.zwallet.data
 import androidx.lifecycle.liveData
 import com.efrinaldi.zwallet.data.api.ZWalletApi
 import com.efrinaldi.zwallet.model.request.LoginRequest
+import com.efrinaldi.zwallet.model.request.ManagePhoneRequest
 import com.efrinaldi.zwallet.model.request.SetPinRequest
 import com.efrinaldi.zwallet.model.request.TransferRequest
 import com.efrinaldi.zwallet.utils.Resource
@@ -94,6 +95,16 @@ class ZWalletDataSource @Inject constructor(private val apiClient: ZWalletApi) {
             val response = apiClient.otpActivation(email,otp)
             emit(Resource.success(response))
         } catch (e: Exception) {
+            emit(Resource.error(null, e.localizedMessage))
+        }
+    }
+
+    fun managePhone(request: ManagePhoneRequest) = liveData(Dispatchers.IO) {
+        emit(Resource.loading(null))
+        try {
+            val response = apiClient.managePhone(request)
+            emit(Resource.success(response))
+        } catch (e: java.lang.Exception){
             emit(Resource.error(null, e.localizedMessage))
         }
     }

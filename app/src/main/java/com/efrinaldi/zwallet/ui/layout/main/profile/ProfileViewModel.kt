@@ -4,7 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.efrinaldi.zwallet.data.ZWalletDataSource
 import com.efrinaldi.zwallet.model.APIResponse
+import com.efrinaldi.zwallet.model.User
 import com.efrinaldi.zwallet.model.UserDetail
+import com.efrinaldi.zwallet.model.request.ManagePhoneRequest
 import com.efrinaldi.zwallet.model.request.SetPinRequest
 import com.efrinaldi.zwallet.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,5 +25,9 @@ class ProfileViewModel @Inject constructor(private var dataSource: ZWalletDataSo
 
     fun setPin(request: SetPinRequest): LiveData<Resource<APIResponse<String>?>> {
         return dataSource.setPin(request)
+    }
+
+    fun managePhone(request: ManagePhoneRequest): LiveData<Resource<APIResponse<User>?>> {
+        return dataSource.managePhone(request)
     }
 }

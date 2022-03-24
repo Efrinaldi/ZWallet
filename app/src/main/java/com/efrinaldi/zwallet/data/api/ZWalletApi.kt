@@ -41,4 +41,7 @@ interface ZWalletApi {
 
     @GET("auth/activate/{email}/{otp}")
     suspend fun otpActivation(@Path("email") email: String, @Path("otp") otp: String): APIResponse<User>
+
+    @PATCH("user/changeInfo")
+    suspend fun managePhone(@Body request: ManagePhoneRequest): APIResponse<User>
 }
